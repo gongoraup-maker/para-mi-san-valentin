@@ -108,17 +108,34 @@ function loveGlitch() {
 }
 
 function moveButton() {
-    // Para que el botón no se escape nunca
-    const padding = 30;
-    const availableWidth = window.innerWidth - btnNo.offsetWidth - (padding * 2);
-    const availableHeight = window.innerHeight - btnNo.offsetHeight - (padding * 2);
 
-    const newLeft = padding + Math.random() * availableWidth;
-    const newTop = padding + Math.random() * availableHeight;
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+
+    
+    const btnWidth = btnNo.offsetWidth;
+    const btnHeight = btnNo.offsetHeight;
+
+    
+    const padding = 50; 
+
+    const maxX = windowWidth - btnWidth - padding;
+    const maxY = windowHeight - btnHeight - padding;
+
+
+    let newX = Math.random() * maxX;
+    let newY = Math.random() * maxY;
+
+
+    newX = Math.max(padding, Math.min(newX, maxX));
+    newY = Math.max(padding, Math.min(newY, maxY));
+
 
     btnNo.style.position = 'fixed';
-    btnNo.style.left = `${newLeft}px`;
-    btnNo.style.top = `${newTop}px`;
+    btnNo.style.left = `${newX}px`;
+    btnNo.style.top = `${newY}px`;
+    
+    
 }
 
 function dropMemory() {
@@ -235,4 +252,5 @@ function buildKitty() {
 
 buildKitty();
 createStars();
+
 
