@@ -1,0 +1,207 @@
+:root {
+    /* Los colores de mi corazón cuando te veo */
+    --pink-bg: #ffc8dd;
+    --pink-dark: #fb6f92;
+    --kitty-white: #ffffff;
+    --kitty-red: #ff3366;
+    --kitty-nose: #ffcc00;
+    --text-color: #555;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffafcc, #bde0fe);
+    font-family: 'Quicksand', sans-serif;
+    overflow: hidden;
+    /* Un mundo sin límites, solo para nosotros */
+}
+
+/* === EFECTO CRISTAL ELEGANTE PERO NO TAN ELEGANTE COMO TU SONRISA === */
+.card {
+    /* Transparencia para dejar ver nuestros recuerdos al fondo */
+    background: rgba(255, 255, 255, 0.60); 
+    
+  
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    
+    padding: 2rem 2.5rem;
+    border-radius: 35px;
+    
+    /* Bordes finos y brillos para dar volumen y hacer que se vea bonito como me haces sentir*/
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        inset 0 0 20px rgba(255, 255, 255, 0.5);
+        
+    text-align: center;
+    z-index: 100; /* Siempre por encima, como mi prioridad eres tú */
+    width: 90%;
+    max-width: 420px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* === NUESTROS RECUERDOS (FOTOS) === */
+.random-photo {
+    position: fixed;
+    width: 140px;
+    height: auto;
+    border: 4px solid white;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    z-index: 50; /* Flotando alrededor, protegiendo el momento */
+    pointer-events: none;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 1;
+}
+
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    color: var(--kitty-red);
+    font-size: 2.4rem;
+    margin: 15px 0 10px 0;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+.intro-text p {
+    color: #444;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+.phrase-box {
+    min-height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+    font-weight: 700;
+    color: #e6004c;
+    font-size: 1.05rem;
+    font-style: italic;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+.phrase-box.hidden { opacity: 0; }
+
+/* === BOTONES === */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 1rem;
+    position: relative; 
+    height: 60px;
+}
+
+button {
+    padding: 12px 35px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#btn-si {
+    background-color: var(--kitty-red);
+    color: white;
+    box-shadow: 0 5px 20px rgba(255, 51, 102, 0.4);
+    z-index: 101;
+    position: relative;
+    /* La única respuesta correcta en mi corazón */
+}
+#btn-si:hover {
+    transform: scale(1.1) translateY(-3px);
+    background-color: #e6004c;
+}
+
+#btn-no {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #777;
+    position: relative; 
+    z-index: 102; /* Travieso pero inalcanzable */
+    transition: top 0.2s ease-out, left 0.2s ease-out;
+}
+
+/* === HELLO KITTY === */
+#hello-kitty-container {
+    width: 180px; height: 220px; position: relative; margin: 0 auto 10px auto; 
+    animation: float 3s ease-in-out infinite;
+}
+
+.kitty-head {
+    width: 140px; height: 105px; background: var(--kitty-white); border-radius: 50% 50% 45% 45%; 
+    border: 3px solid #333; position: absolute; top: 20px; left: 20px; z-index: 10;
+}
+.kitty-head::before, .kitty-head::after {
+    content: ''; position: absolute; width: 35px; height: 40px; background: var(--kitty-white); 
+    border: 3px solid #333; border-bottom: none; border-radius: 20px 20px 0 0; top: -10px; z-index: -1;
+}
+.kitty-head::before { left: 8px; transform: rotate(-25deg); }
+.kitty-head::after { right: 8px; transform: rotate(25deg); }
+
+.kitty-eye {
+    width: 10px; height: 14px; background: #333; border-radius: 50%; position: absolute; top: 55px; 
+    animation: blink 4s infinite;
+}
+.kitty-eye.left { left: 38px; } .kitty-eye.right { right: 38px; }
+
+.kitty-nose {
+    width: 14px; height: 8px; background: var(--kitty-nose); border: 2px solid #333; border-radius: 50%; 
+    position: absolute; top: 70px; left: 50%; transform: translateX(-50%);
+}
+
+.kitty-whiskers { position: absolute; top: 60px; width: 100%; }
+.whisker { width: 20px; height: 2px; background: #333; position: absolute; }
+.whisker.l1 { left: 2px; top: 0; transform: rotate(10deg); }
+.whisker.l2 { left: -2px; top: 8px; }
+.whisker.l3 { left: 2px; top: 16px; transform: rotate(-10deg); }
+.whisker.r1 { right: 2px; top: 0; transform: rotate(-10deg); }
+.whisker.r2 { right: -2px; top: 8px; }
+.whisker.r3 { right: 2px; top: 16px; transform: rotate(10deg); }
+
+.kitty-bow {
+    width: 35px; height: 20px; background: var(--kitty-red); position: absolute; top: -5px; right: 20px; 
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; border: 3px solid #333; transform: rotate(15deg); z-index: 12;
+}
+.kitty-bow::before {
+    content: ''; width: 12px; height: 12px; background: var(--kitty-red); border: 3px solid #333; 
+    border-radius: 50%; position: absolute; top: 2px; left: 10px; z-index: 2;
+}
+
+.kitty-body {
+    width: 70px; height: 60px; background: var(--kitty-red); border: 3px solid #333; 
+    border-radius: 30px 30px 10px 10px; position: absolute; top: 115px; left: 55px; z-index: 5;
+}
+
+.kitty-arm {
+    width: 25px; height: 35px; background: var(--kitty-white); border: 3px solid #333; 
+    border-radius: 20px; position: absolute; top: 120px; z-index: 6;
+}
+.kitty-arm.left { left: 35px; transform: rotate(40deg); }
+.kitty-arm.right { right: 35px; transform: rotate(-40deg); }
+
+.kitty-heart {
+    width: 40px; height: 40px; background-color: #ff0000; position: absolute; top: 135px; left: 70px; z-index: 20;
+    animation: heartbeat 1.5s infinite;
+    clip-path: path('M20,35.09,8.15,23.64c-3.07-2.96-5.11-6.1-5.11-9.36,0-5.63,4.47-8.28,8.28-8.28,3.06,0,5.63,1.66,8.68,4.71,3.05-3.05,5.62-4.71,8.68-4.71,3.81,0,8.28,2.65,8.28,8.28,0,3.26-2.04,6.4-5.11,9.36L20,35.09Z');
+    transform: scale(1.2); 
+}
+
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes blink { 0%, 96%, 100% { transform: scaleY(1); } 98% { transform: scaleY(0.1); } }
+@keyframes heartbeat { 0% { transform: scale(1); } 15% { transform: scale(1.3); } 30% { transform: scale(1); } 45% { transform: scale(1.15); } 60% { transform: scale(1); } }
+.star { position: absolute; background: white; border-radius: 50%; opacity: 0.6; animation: twinkle var(--duration) infinite; }
+@keyframes twinkle { 0%, 100% { opacity: 0.3; transform: scale(1); } 50% { opacity: 1; transform: scale(1.3); } }
