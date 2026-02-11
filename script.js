@@ -95,16 +95,17 @@ btnNo.addEventListener('mouseover', loveGlitch);
 btnNo.addEventListener('touchstart', loveGlitch);
 
 function loveGlitch() {
-    // Mensaje para mi hermosa princesa
+    // 1. Mensaje de amor
     const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
     phraseBox.textContent = randomPhrase;
     phraseBox.classList.remove('hidden');
 
-    // Nuestros recuerdos juntos <3
+    // 2. Lluvia de recuerdos
     dropMemory();
 
-    // Jamás le podrás dar clic y si lo haces no funcionará
-    moveButton(); }
+    // 3. El botón se escapa (CON NUEVA SEGURIDAD)
+    moveButton();
+}
   function moveButton() {
     // Para que el botón no se escape nunca
     const padding = 30;
@@ -233,6 +234,7 @@ function buildKitty() {
 
 buildKitty();
 createStars();
+
 
 
 
