@@ -106,19 +106,38 @@ function loveGlitch() {
     // 3. El botón se escapa (CON NUEVA SEGURIDAD)
     moveButton();
 }
-  function moveButton() {
-    // Para que el botón no se escape nunca
-    const padding = 30;
-    const availableWidth = window.innerWidth - btnNo.offsetWidth - (padding * 2);
-    const availableHeight = window.innerHeight - btnNo.offsetHeight - (padding * 2);
+ function moveButton() {
+    
+    const width = window.innerWidth;
+    const height = window.innerHeight;
 
-    const newLeft = padding + Math.random() * availableWidth;
-    const newTop = padding + Math.random() * availableHeight;
 
+    const btnWidth = btnNo.offsetWidth;
+    const btnHeight = btnNo.offsetHeight;
+
+  
+    const marginX = Math.max(100, width * 0.1); 
+    const marginY = Math.max(100, height * 0.1);
+
+
+    const minX = marginX;
+    const maxX = width - btnWidth - marginX;
+    
+    const minY = marginY;
+    const maxY = height - btnHeight - marginY;
+
+    
+    let newX = Math.random() * (maxX - minX) + minX;
+    let newY = Math.random() * (maxY - minY) + minY;
+
+
+    newX = Math.min(Math.max(newX, minX), maxX);
+    newY = Math.min(Math.max(newY, minY), maxY);
+
+    
     btnNo.style.position = 'fixed';
-    btnNo.style.left = `${newLeft}px`;
-    btnNo.style.top = `${newTop}px`;
-
+    btnNo.style.left = `${newX}px`;
+    btnNo.style.top = `${newY}px`;
 }
 function dropMemory() {
     const img = document.createElement('img');
@@ -234,6 +253,7 @@ function buildKitty() {
 
 buildKitty();
 createStars();
+
 
 
 
