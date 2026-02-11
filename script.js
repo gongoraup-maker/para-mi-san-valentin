@@ -104,7 +104,7 @@ function loveGlitch() {
     dropMemory();
 
     // Jamás le podrás dar clic y si lo haces no funcionará
-    moveButton();
+    moveButton(); }
   function moveButton() {
 
     const width = window.innerWidth;
@@ -252,6 +252,7 @@ function buildKitty() {
 
 buildKitty();
 createStars();
+
 
 
 
