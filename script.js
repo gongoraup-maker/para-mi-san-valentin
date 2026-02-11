@@ -103,32 +103,35 @@ function loveGlitch() {
     // Nuestros recuerdos juntos <3
     dropMemory();
 
-    // Jamás le podrás dar clic y si lo haces no funcionará
-    moveButton();
-}
 
-function moveButton() {
+  function moveButton() {
 
-    const w = window.innerWidth;
-    const h = window.innerHeight;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
 
-
-    const btnW = btnNo.offsetWidth;
-    const btnH = btnNo.offsetHeight;
-
-   
-    const safeMinX = w * 0.15; 
     
-    const safeMaxX = (w * 0.85) - btnW;
+    const btnWidth = btnNo.offsetWidth;
+    const btnHeight = btnNo.offsetHeight;
+
+
+    const marginX = Math.max(100, width * 0.1); 
+    const marginY = Math.max(100, height * 0.1);
+
     
+    const minX = marginX;
+    const maxX = width - btnWidth - marginX;
+    
+    const minY = marginY;
+    const maxY = height - btnHeight - marginY;
 
-    const safeMinY = h * 0.15;
+    
+    let newX = Math.random() * (maxX - minX) + minX;
+    let newY = Math.random() * (maxY - minY) + minY;
 
-    const safeMaxY = (h * 0.85) - btnH;
+  
+    newX = Math.min(Math.max(newX, minX), maxX);
+    newY = Math.min(Math.max(newY, minY), maxY);
 
-
-    const newX = Math.random() * (safeMaxX - safeMinX) + safeMinX;
-    const newY = Math.random() * (safeMaxY - safeMinY) + safeMinY;
 
     btnNo.style.position = 'fixed';
     btnNo.style.left = `${newX}px`;
@@ -248,6 +251,7 @@ function buildKitty() {
 
 buildKitty();
 createStars();
+
 
 
 
