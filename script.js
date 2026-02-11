@@ -103,7 +103,8 @@ function loveGlitch() {
     // Nuestros recuerdos juntos <3
     dropMemory();
 
-
+    // Jamás le podrás dar clic y si lo haces no funcionará
+    moveButton();
   function moveButton() {
 
     const width = window.innerWidth;
@@ -251,6 +252,7 @@ function buildKitty() {
 
 buildKitty();
 createStars();
+
 
 
 
