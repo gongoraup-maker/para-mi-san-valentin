@@ -109,37 +109,31 @@ function loveGlitch() {
 
 function moveButton() {
 
-    
-  
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
-    const btnWidth = btnNo.offsetWidth;
-    const btnHeight = btnNo.offsetHeight;
+    const w = window.innerWidth;
+    const h = window.innerHeight;
 
 
-    const padding = 60; 
+    const btnW = btnNo.offsetWidth;
+    const btnH = btnNo.offsetHeight;
 
    
-    const maxX = windowWidth - btnWidth - padding;
-    const maxY = windowHeight - btnHeight - padding;
-
-
-    let newX = Math.random() * maxX;
-    let newY = Math.random() * maxY;
-
+    const safeMinX = w * 0.15; 
     
-    newX = Math.min(newX, maxX);
-    newX = Math.max(newX, padding);
+    const safeMaxX = (w * 0.85) - btnW;
+    
 
-    newY = Math.min(newY, maxY);
-    newY = Math.max(newY, padding);
+    const safeMinY = h * 0.15;
 
+    const safeMaxY = (h * 0.85) - btnH;
+
+
+    const newX = Math.random() * (safeMaxX - safeMinX) + safeMinX;
+    const newY = Math.random() * (safeMaxY - safeMinY) + safeMinY;
 
     btnNo.style.position = 'fixed';
     btnNo.style.left = `${newX}px`;
     btnNo.style.top = `${newY}px`;
 }
-
 function dropMemory() {
     const img = document.createElement('img');
     img.src = ourMemories[Math.floor(Math.random() * ourMemories.length)];
@@ -254,6 +248,7 @@ function buildKitty() {
 
 buildKitty();
 createStars();
+
 
 
 
