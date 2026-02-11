@@ -17,7 +17,7 @@ const phraseBox = document.getElementById('phrase-box');
 
 // --- NUESTROS RECUERDOS ---
 const ourMemories = [
-   'img/1.jpeg',
+    'img/1.jpeg',
     'img/2.jpeg',
     'img/3.jpeg',
     'img/4.jpeg',
@@ -36,7 +36,7 @@ const ourMemories = [
     'img/17.jpeg',
     'img/18.jpeg',
     'img/19.jpeg',
-    'img/20.jpe2g',
+    'img/20.jpeg',
     'img/21.jpeg',
     'img/22.jpeg',
     'img/23.jpeg',
